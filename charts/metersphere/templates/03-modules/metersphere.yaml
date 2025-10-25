@@ -76,11 +76,18 @@ spec:
           image: {{.Values.common.imagePrefix}}{{.Values.common.image}}:{{.Values.common.imageTag}}
           imagePullPolicy: {{.Values.common.imagePullPolicy}}
           resources:
+            {{- if .Values.metersphere.resources }}
+            {{- toYaml .Values.metersphere.resources | nindent 12 }}
+            {{- else if .Values.common.resources }}
+            {{- toYaml .Values.common.resources | nindent 12 }}
+            {{- else }}
             limits:
-              memory: 800Mi
+              cpu: 1000m
+              memory: 2Gi
             requests:
-              memory: 300Mi
-              cpu: 0.1
+              cpu: 100m
+              memory: 512Mi
+            {{- end }}
           ports:
             - name: http
               containerPort: 8081

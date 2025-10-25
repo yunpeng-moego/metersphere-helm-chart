@@ -17,7 +17,9 @@ common:
   storageClass: default
   imageTag: v3.6.6-lts
   imagePullPolicy: Always
-  # Global environment variables to set in all containers
+  # Global resource configuration for all containers
+  resources: {}
+  # Environment variables to set in all containers
   env: []
   # Global EnvFrom to set in all containers
   envFrom: []
@@ -53,6 +55,18 @@ redisson:
 metersphere:
   enabled: true
   replicas: 1
+  # Resource configuration for the container
+  resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
   # Environment variables to set in the container
   env: []
   #  - name: EXAMPLE_ENV_VAR
@@ -72,6 +86,8 @@ metersphere:
 resultHub:
   enabled: true
   replicas: 1
+  # Resource configuration for the container
+  resources: {}
   # Environment variables to set in the container
   env: []
   # EnvFrom to set in the container
@@ -80,6 +96,8 @@ resultHub:
 taskRunner:
   enabled: true
   replicas: 1
+  # Resource configuration for the container
+  resources: {}
   # Environment variables to set in the container
   env: []
   # EnvFrom to set in the container
