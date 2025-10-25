@@ -71,6 +71,13 @@ spec:
           env:
             - name: FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS
               value: "true"
+            {{- if .Values.resultHub.env }}
+            {{- toYaml .Values.resultHub.env | nindent 12 }}
+            {{- end }}
+          envFrom:
+            {{- if .Values.resultHub.envFrom }}
+            {{- toYaml .Values.resultHub.envFrom | nindent 12 }}
+            {{- end }}
           command:
             - sh
             - -c

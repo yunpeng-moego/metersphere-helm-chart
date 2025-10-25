@@ -49,14 +49,37 @@ redisson:
 metersphere:
   enabled: true
   replicas: 1
+  # Environment variables to set in the container
+  env: []
+  #  - name: EXAMPLE_ENV_VAR
+  #    value: "example value"
+  #  - name: EXAMPLE_SECRET
+  #    valueFrom:
+  #      secretKeyRef:
+  #        name: example-secret
+  #        key: example-key
+  # EnvFrom to set in the container
+  envFrom: []
+  #  - configMapRef:
+  #      name: example-configmap
+  #  - secretRef:
+  #      name: example-secret
 
 resultHub:
   enabled: true
   replicas: 1
+  # Environment variables to set in the container
+  env: []
+  # EnvFrom to set in the container
+  envFrom: []
 
 taskRunner:
   enabled: true
   replicas: 1
+  # Environment variables to set in the container
+  env: []
+  # EnvFrom to set in the container
+  envFrom: []
 
 logPersistence:
   enabled: true
