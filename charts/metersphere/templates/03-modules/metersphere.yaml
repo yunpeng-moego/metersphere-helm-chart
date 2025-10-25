@@ -18,6 +18,10 @@ spec:
       labels:
         app: metersphere
     spec:
+      {{- if .Values.common.nodeSelector }}
+      nodeSelector:
+        {{- toYaml .Values.common.nodeSelector | nindent 8 }}
+      {{- end }}
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:

@@ -14,6 +14,10 @@ spec:
       labels:
         app: metersphere-minio
     spec:
+      {{- if .Values.common.nodeSelector }}
+      nodeSelector:
+        {{- toYaml .Values.common.nodeSelector | nindent 8 }}
+      {{- end }}
       containers:
         - name: minio
           image: {{.Values.common.imagePrefix}}{{.Values.minio.image}}:{{.Values.minio.imageTag}}
