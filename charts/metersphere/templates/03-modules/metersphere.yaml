@@ -94,10 +94,16 @@ spec:
                   name: metersphere-config
                   key: kafka.bootstrap-servers
             {{ end }}
+            {{- if .Values.common.env }}
+            {{- toYaml .Values.common.env | nindent 12 }}
+            {{- end }}
             {{- if .Values.metersphere.env }}
             {{- toYaml .Values.metersphere.env | nindent 12 }}
             {{- end }}
           envFrom:
+            {{- if .Values.common.envFrom }}
+            {{- toYaml .Values.common.envFrom | nindent 12 }}
+            {{- end }}
             {{- if .Values.metersphere.envFrom }}
             {{- toYaml .Values.metersphere.envFrom | nindent 12 }}
             {{- end }}

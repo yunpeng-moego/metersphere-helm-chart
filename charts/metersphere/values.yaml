@@ -17,6 +17,10 @@ common:
   storageClass: default
   imageTag: v3.6.6-lts
   imagePullPolicy: Always
+  # Global environment variables to set in all containers
+  env: []
+  # Global EnvFrom to set in all containers
+  envFrom: []
   properties: |-
     ## DATABASE
     spring.datasource.url=jdbc:mysql://{{.Values.mysql.host}}:{{.Values.mysql.port}}/metersphere?autoReconnect=false&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true

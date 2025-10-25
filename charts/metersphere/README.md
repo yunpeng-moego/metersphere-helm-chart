@@ -10,6 +10,16 @@ helm install metersphere metersphere
 可以在 values.yaml 中为各个组件配置环境变量和 envFrom：
 
 ```yaml
+# 全局环境变量，会应用到所有组件
+common:
+  env:
+    - name: GLOBAL_ENV_VAR
+      value: "global value"
+  envFrom:
+    - configMapRef:
+        name: global-config
+
+# 组件特定的环境变量
 metersphere:
   env:
     - name: CUSTOM_ENV_VAR
@@ -30,3 +40,5 @@ metersphere:
 - metersphere
 - resultHub
 - taskRunner
+
+组件特定的环境变量会追加到全局环境变量之后。

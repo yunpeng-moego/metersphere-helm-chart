@@ -61,10 +61,16 @@ spec:
           env:
             - name: FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS
               value: "true"
+            {{- if .Values.common.env }}
+            {{- toYaml .Values.common.env | nindent 12 }}
+            {{- end }}
             {{- if .Values.taskRunner.env }}
             {{- toYaml .Values.taskRunner.env | nindent 12 }}
             {{- end }}
           envFrom:
+            {{- if .Values.common.envFrom }}
+            {{- toYaml .Values.common.envFrom | nindent 12 }}
+            {{- end }}
             {{- if .Values.taskRunner.envFrom }}
             {{- toYaml .Values.taskRunner.envFrom | nindent 12 }}
             {{- end }}
