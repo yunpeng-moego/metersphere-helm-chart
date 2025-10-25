@@ -68,7 +68,9 @@ metersphere:
   #   cpu: 100m
   #   memory: 128Mi
   # Environment variables to set in the container
-  env: []
+  env:
+    - name: JAVA_OPTS
+      value: "-XX:-OmitStackTraceInFastThrow -XX:InitialRAMPercentage=75 -XX:MinRAMPercentage=75 -XX:MaxRAMPercentage=75"
   #  - name: EXAMPLE_ENV_VAR
   #    value: "example value"
   #  - name: EXAMPLE_SECRET
@@ -89,7 +91,9 @@ resultHub:
   # Resource configuration for the container
   resources: {}
   # Environment variables to set in the container
-  env: []
+  env:
+    - name: JAVA_OPTS
+      value: "-XX:-OmitStackTraceInFastThrow -XX:InitialRAMPercentage=75 -XX:MinRAMPercentage=75 -XX:MaxRAMPercentage=75"
   # EnvFrom to set in the container
   envFrom: []
 
@@ -99,7 +103,9 @@ taskRunner:
   # Resource configuration for the container
   resources: {}
   # Environment variables to set in the container
-  env: []
+  env:
+    - name: JAVA_OPTS
+      value: "-XX:-OmitStackTraceInFastThrow -XX:InitialRAMPercentage=75 -XX:MinRAMPercentage=75 -XX:MaxRAMPercentage=75"
   # EnvFrom to set in the container
   envFrom: []
 
